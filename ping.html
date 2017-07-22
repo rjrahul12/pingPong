@@ -29,12 +29,13 @@
 		</div>
 		<div id="table">
 			<div id="tableOne"></div>
+			
 			<div id="tableTwo"></div>
 		</div>
 	</div>
 	<div id="paddleTwo"><img id="paddleTwoImage" src="tt-racket-trans-rotate.png"></div>
 </div>
-
+<button id="startGame"> Start Game </button>
 <div>
 	<h1>MULTIPLAYER</h1>
 </div>
@@ -69,7 +70,7 @@
 		font-family: Arial;
 		font-size: 210%;
 	}
-	#playAgain {
+	#playAgain,#startGame{
 		cursor: hand;
 		cursor: pointer;
 		font-size: 180%;
@@ -138,6 +139,14 @@
 		width: 90%;
 		height: 100%;
 	}
+	#startGame{
+		position: absolute;
+		padding: 12px;
+		top: 295px;
+    	left: 560px;
+		z-index: 999;
+		
+	}
 	#net {
 		position: absolute;
 		z-index: 2;
@@ -150,6 +159,7 @@
 		justify-content: center;
 		align-items: center;
 	}
+
 	#netJointOne {
 		z-index: 2;
 		height: 8%;
@@ -157,9 +167,10 @@
 		background-color: white;
 	}
 	#mesh {
-		z-index: 2;
+		z-index: -1;
 		height: 100%;
 		width: 0.3%;
+
 		background-color: #022412;
 		border-left: thin dashed white;
 		box-shadow: 5px 0px 40px 3px #458167, -5px 0px 40px 3px #458167;
@@ -197,6 +208,7 @@
 		border: thick solid #ebfffa;
 		box-shadow: inset 20px 20px 100px 0px #458167, 15px 0 110px 30px #2a312f;
 	}
+	
 	#tableTwo {
 		height: 50%;
 		width: 100%;
@@ -347,9 +359,14 @@
 	}
 	var playAgainButton = document.getElementById('playAgain');
 	playAgainButton.addEventListener('click', playAgain);
-
-	ball();
-	paddle();
+	var startGame=document.getElementById('startGame');
+	startGame.addEventListener('click',function(){
+		startGame.style.display="none";
+		ball();
+		paddle();
+	})
+	
+	
 </script>
 
 </body>
